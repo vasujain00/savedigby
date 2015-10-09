@@ -1,0 +1,35 @@
+imagecloud="cloud.png"
+imagebckgrd="background.png"
+
+import pygame,sys
+from pygame.locals import *
+
+pygame.init()
+Screen=pygame.display.set_mode((840,440),0,32)
+background=pygame.image.load(imagebckgrd).convert()
+cloud=pygame.image.load(imagecloud).convert_alpha()
+x=0
+pygame.display.update()
+clock=pygame.time.Clock()
+speed=250
+
+while True :
+
+    for event in pygame.event.get():
+        if event.type==QUIT:
+            pygame.quit()
+            sys.exit()
+
+
+    Screen.blit(background,(0,0))
+    Screen.blit(cloud,(x,10))
+    x=x+1
+    
+    
+
+    if x>840 :
+        x=0
+
+    pygame.display.update()
+
+
